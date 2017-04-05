@@ -4,7 +4,7 @@
 #include <cstdlib>
 #include <algorithm>
 
-#include "tree.h"
+#include "ds.h"
 
 using namespace std;
 
@@ -16,6 +16,8 @@ tree_node *tree_insert( tree_node *root, int data ) {
         auto insert = new tree_node;
         insert->left = insert->right = nullptr;
         insert->data = data;
+        root = insert;
+        return root; 
     }
 
     if ( root->data > data ) {
@@ -30,15 +32,15 @@ tree_node *tree_insert( tree_node *root, int data ) {
 /* 
  * find the given node recursively
  */
-tree_node *tree_find( tree_node *root, int data ) {
+tree_node *tree_search( tree_node *root, int data ) {
     if ( ( root == nullptr ) || ( root->data == data ) ) {
         return root;
     }
 
     if ( data < root->data ) {
-        return tree_find( root->left, data );
+        return tree_search( root->left, data );
     } else {
-        return tree_find( root->right, data );
+        return tree_search( root->right, data );
     }
 }
 
@@ -147,16 +149,36 @@ bool tree_balanced( tree_node *root ) {
     return ( abs( left_depth - right_depth ) <= 1 );
 }
 
-bool tree_find_path( tree_node *root, tree_node *target, int* visit ) {
+bool tree_find_path( tree_node *root, tree_node *target, list_node *visit ) {
     return false;
 }
 
-void tree_inorder( tree_node *root, int *visit ) {
+void tree_inorder( tree_node *root, list_node **visit ) {
+    if ( root == nullptr ) {
+        return;
+    }
+
+    tree_inorder( root->left, visit );
+    *visit = list_insert_tail( *visit, root->data );
+    tree_inorder( root->right, visit );
 }
 
-void tree_preorder( tree_node *root, int *visit ) {
+void tree_preorder( tree_node *root, list_node **visit ) {
+    if ( root == nullptr ) {
+        return;
+    }
+
+    *visit = list_insert_tail( *visit, root->data );
+    tree_inorder( root->left, visit );
+    tree_inorder( root->right, visit );
 }
 
-void tree_postorder( tree_node *root, int *visit ) {
-}
+void tree_postorder( tree_node *root, list_node **visit ) {
+    if ( root == nullptr ) {
+        return;
+    }
 
+    tree_inorder( root->left, visit );
+    tree_inorder( root->right, visit );
+    *visit = list_insert_tail( *visit, root->data );
+}

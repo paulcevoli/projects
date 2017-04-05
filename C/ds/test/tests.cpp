@@ -43,10 +43,47 @@ void test_list() {
 
 void test_tree() {
 
+    tree_node* root = nullptr;
+    list_node* sorted_head = nullptr;    
+    root = tree_insert( root, 1 );
+    root = tree_insert( root, 3 );
+    root = tree_insert( root, 0 );
+    root = tree_insert( root, 6 );
+    root = tree_insert( root, 5 );
+    root = tree_insert( root, 4 );
+    root = tree_insert( root, 2 );
+   
+    tree_inorder( root, &sorted_head );
+    list_print( sorted_head );
+
+    for ( int i = 0; i <= 6; i++ ) {
+        sorted_head = list_remove( sorted_head, list_search( sorted_head, i ) );
+    }
+
+    tree_preorder( root, &sorted_head );
+    list_print( sorted_head );
+
+    for ( int i = 0; i <= 6; i++ ) {
+        sorted_head = list_remove( sorted_head, list_search( sorted_head, i ) );
+    }
+
+    tree_postorder( root, &sorted_head );
+    list_print( sorted_head );
+
+    for ( int i = 0; i <= 6; i++ ) {
+        sorted_head = list_remove( sorted_head, list_search( sorted_head, i ) );
+    }
+
+    for ( int i = 0; i <= 6; i++ ) {
+        root = tree_remove( root, tree_search( root, i ) );
+    }
+
+    cout << root << endl;
 }
 
 int main() {
     test_list();
+    test_tree();
 
     return 0;
 }
