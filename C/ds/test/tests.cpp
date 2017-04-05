@@ -1,5 +1,5 @@
 #include <iostream>
-#include "list.h"
+#include "ds.h"
 
 using namespace std;
 
@@ -38,6 +38,11 @@ void test_list() {
     sorted_head = list_remove( sorted_head, list_search( sorted_head, 4 ) );
     sorted_head = list_remove( sorted_head, list_search( sorted_head, 9 ) );
     list_print( sorted_head );
+}
+
+
+void test_tree() {
+
 }
 
 int main() {

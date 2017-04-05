@@ -4,6 +4,8 @@
 #ifndef c_tree_h
 #define c_tree_h
 
+#include <cstdint>
+
 struct tree_node {
     int data;
     tree_node *right;
@@ -14,8 +16,8 @@ tree_node *tree_insert( tree_node *root, int data );
 tree_node *tree_find( tree_node *root, int data );
 tree_node *tree_remove( tree_node *root, tree_node *target );
 
-tree_node *tree_size( tree_node *root );
-tree_node *tree_depth( tree_node *root );
+int32_t tree_size( tree_node *root );
+int32_t tree_depth( tree_node *root );
 bool tree_balanced( tree_node *root );
 
 bool tree_find_path( tree_node *root, tree_node *target, int* visit );
