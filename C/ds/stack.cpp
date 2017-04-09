@@ -52,7 +52,9 @@ int stack_pop( stack_node *stack ) {
         if ( stack->elements > 0 ) {
             stack->elements--;
             stack->next = list_remove( stack->next, list_search( stack->next, stack_top( stack ) ) );
-            data = stack->next->data;
+            if ( stack->next != nullptr ) {
+                data = stack->next->data;
+            }
         }
     }
     return data;

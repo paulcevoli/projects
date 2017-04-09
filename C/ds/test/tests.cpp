@@ -5,6 +5,8 @@ using namespace std;
 
 void test_list() {
 
+    cout << "List test" << endl;
+
     list_node *head = nullptr;
     head = list_insert_head( head, 0 );
     head = list_insert_head( head, 1 );
@@ -16,7 +18,7 @@ void test_list() {
     find = list_search( head, 3 );
     cout << hex << find << " " << find->data << endl;
     find = list_search( head, 7 );
-    cout << hex << find << endl;
+    cout << hex << find << endl << dec;
 
     list_node *tail = nullptr;
     tail = list_insert_tail( tail, 0 );
@@ -42,6 +44,8 @@ void test_list() {
 
 
 void test_tree() {
+
+    cout << "Tree test" << endl;
 
     tree_node *root = nullptr;
     list_node *sorted_head = nullptr;    
@@ -81,16 +85,21 @@ void test_tree() {
     cout << root << endl;
 }
 
-void test_stack()
-{
+void test_stack() {
+    cout << "Stack test" << endl;
+
     stack_node *stack = stack_new(); 
     stack = stack_push( stack, 5 );
+    stack_print( stack );
     stack = stack_push( stack, 10 );
-    stack = stack_push( stack, 56 );
-    stack = stack_push( stack, 2 );
-    stack = stack_push( stack, 8 );
-    stack = stack_push( stack, -1 );
-
+    stack_print( stack );
+    stack = stack_push( stack, 15 );
+    stack_print( stack );
+    stack = stack_push( stack, 20 );
+    stack_print( stack );
+    stack = stack_push( stack, 0 );
+    stack_print( stack );
+    stack = stack_push( stack, -15 );
     stack_print( stack );
 
     stack_delete( stack );
