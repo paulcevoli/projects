@@ -37,7 +37,7 @@ list_node* list_insert_tail( list_node* head, int data ) {
         head = insert;
     } else {
         list_node *current = head;
-    
+
         while ( current->next != nullptr ) {
             current = current->next;
         }
@@ -87,13 +87,13 @@ list_node* list_remove( list_node* head, list_node* target ) {
         if ( head == target ) {
             head = head->next;
         } else {
-           list_node *current = head;
+            list_node *current = head;
 
-           while ( ( current->next != target ) && ( current->next != nullptr ) ) {
-               current = current->next;   
-           }
+            while ( ( current->next != target ) && ( current->next != nullptr ) ) {
+                current = current->next;   
+            }
 
-           current->next = current->next->next;
+            current->next = current->next->next;
         }
 
         delete target;
@@ -107,9 +107,9 @@ void list_print( list_node* head ) {
     list_node* current = head;
 
     while ( current != nullptr ) {
-        std::cout << current->data << " ";
+        cout << current->data << " ";
         current = current->next;
     }
 
-    std::cout << std::endl;
+    cout << endl;
 }

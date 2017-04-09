@@ -18,14 +18,14 @@ void test_list() {
     find = list_search( head, 7 );
     cout << hex << find << endl;
 
-    list_node* tail = nullptr;
+    list_node *tail = nullptr;
     tail = list_insert_tail( tail, 0 );
     tail = list_insert_tail( tail, 1 );
     tail = list_insert_tail( tail, 2 );
     tail = list_insert_tail( tail, 3 );
     list_print( tail );
 
-    list_node* sorted_head = nullptr;    
+    list_node *sorted_head = nullptr;    
     sorted_head = list_insert_sorted( sorted_head, 0 );
     sorted_head = list_insert_sorted( sorted_head, 1 );
     sorted_head = list_insert_sorted( sorted_head, 2 );
@@ -43,8 +43,8 @@ void test_list() {
 
 void test_tree() {
 
-    tree_node* root = nullptr;
-    list_node* sorted_head = nullptr;    
+    tree_node *root = nullptr;
+    list_node *sorted_head = nullptr;    
     root = tree_insert( root, 1 );
     root = tree_insert( root, 3 );
     root = tree_insert( root, 0 );
@@ -81,9 +81,25 @@ void test_tree() {
     cout << root << endl;
 }
 
+void test_stack()
+{
+    stack_node *stack = stack_new(); 
+    stack = stack_push( stack, 5 );
+    stack = stack_push( stack, 10 );
+    stack = stack_push( stack, 56 );
+    stack = stack_push( stack, 2 );
+    stack = stack_push( stack, 8 );
+    stack = stack_push( stack, -1 );
+
+    stack_print( stack );
+
+    stack_delete( stack );
+}
+
 int main() {
     test_list();
     test_tree();
+    test_stack();
 
     return 0;
 }
