@@ -1,33 +1,24 @@
-#ifndef c_hash_hpp
-#define c_hash_hpp
+#ifndef c_hash_h
+#define c_hash_h
 
-typedef struct
-{
-    char     ckey[ 64 ];
+struct hash_item {
+    char     ckey[ 128 ];
     uint32_t key;
     uint32_t data;
-} hash_t;
-
-hash_t *hash_search( uint32_t key );
-void hash_insert( uint32_t key, uint32_t data );
-void hash_delete( uint32_t key );
-void hash_print();
-void hash_destroy();
-
-class hash {
-    public:
-        hash( int size );
-        ~hash();
-
-        hash_t*     search( char* key );
-        void        insert( char* key, uint32_t data );
-        void        print();
-
-    private:
-        uint32_t hash_code( char* key );
-
-        hash_t  **_hash_tbl;
-        uint32_t  _hash_size;
 };
+
+struct hash_table {
+    uint32_t    size;
+    hash_table  *hash;
+};
+
+hash_table *hash_create( uint32_t size );
+void hash_destroy( hash_table *hash );
+
+hash_item *hash_search( hash_table *hash, uint32_t key );
+void hash_insert( hash_table *hash, uint32_t key, uint32_t data );
+void hash_delete( hash_table *hash, uint32_t key );
+void hash_print( hash_table *hash );
+void hash_destroy( hash_table *hash );
 
 #endif
