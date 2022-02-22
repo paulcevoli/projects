@@ -1,0 +1,8 @@
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\obj\Debug\02 Even Fibonacci.csproj.SuggestedBindingRedirects.cache
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\obj\Debug\02 Even Fibonacci.csproj.CoreCompileInputs.cache
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\bin\Debug\02 Even Fibonacci.exe.config
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\bin\Debug\02 Even Fibonacci.exe
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\bin\Debug\02 Even Fibonacci.pdb
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\obj\Debug\02 Even Fibonacci.exe
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\obj\Debug\02 Even Fibonacci.pdb
+C:\Users\pcevo\Source\repos\Project Euler\02 Even Fibonacci\obj\Debug\02 Even Fibonacci.csproj.AssemblyReference.cache
